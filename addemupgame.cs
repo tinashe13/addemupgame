@@ -34,8 +34,6 @@ class Program
         }
 
         // Proceed with the rest of the code using the inputFile and outputFile variables
-
-
         Console.WriteLine($"Input file: {inputFile}");
         Console.WriteLine($"Output file: {outputFile}");
         string inputDirectory = Path.GetDirectoryName(inputFile);
@@ -55,7 +53,6 @@ class Program
                 file.WriteLine("Exception: Invalid input file. " + ex.Message);
             }
         }
-
 
         // Calculate the points for each player
         if (players == null || players.Count == 0)
@@ -127,7 +124,7 @@ class Program
             }
         }
     }
-    //Create Player Object
+
     class Player
     {
         public string Name { get; private set; }
@@ -141,7 +138,7 @@ class Program
             Name = nameCards[0];
             Cards = nameCards[1].ToUpper().Split(',');
         }
-        //Calculate Points for each Player
+
         public void CalculatePoints()
         {
 
@@ -185,15 +182,11 @@ class Program
                 }
             }
             catch(Exception) {
-
                 Console.WriteLine("Exception: Invalid Input Format");
-                
-
             }
             
         }
 
-        //Calculates the Suit Score for the largest card in the deck
         public void CalculateSuitScore()
         {
             string maxCard = Cards.OrderByDescending(card => GetCardValue(card)).First();
@@ -218,8 +211,6 @@ class Program
                     return int.Parse(value);
             }
         }
-
-        //Get the Suit Value
         private int GetSuitValue(string card)
         {
             string suit = card.Substring(card.Length - 1, 1);
